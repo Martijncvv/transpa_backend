@@ -30,11 +30,11 @@ module.exports = {
 			},
 			companyImageUrl: {
 				allowNull: false,
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING,
 			},
 			detailedCompanyInfo: {
 				allowNull: false,
-				type: Sequelize.STRING,
+				type: Sequelize.TEXT,
 			},
 			createdAt: {
 				allowNull: false,

@@ -25,7 +25,6 @@ module.exports = {
 				type: Sequelize.TEXT,
 			},
 			videoURL: {
-				allowNull: false,
 				type: Sequelize.STRING,
 			},
 			socialMediaURL: {
