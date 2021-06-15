@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 			mainProductImageURL: { type: DataTypes.STRING, allowNull: false },
 			colour: { type: DataTypes.STRING, allowNull: false },
 			detailedProductInfo: { type: DataTypes.TEXT, allowNull: false },
-			videoURL: { type: DataTypes.STRING, allowNull: false },
+			videoURL: { type: DataTypes.STRING },
 			socialMediaURL: { type: DataTypes.STRING, allowNull: false },
 		},
 		{
