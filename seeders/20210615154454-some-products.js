@@ -61,7 +61,7 @@ module.exports = {
 				{
 					productName: "Ethereum",
 					mainProductImageURL:
-						"hhttps://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/628px-Ethereum_logo_2014.svg.png",
+						"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/628px-Ethereum_logo_2014.svg.png",
 					colour: "#2d3040",
 					detailedProductInfo: `Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH or Ξ) is the native cryptocurrency of the platform. After Bitcoin, it is the second-largest cryptocurrency by market capitalization. Ethereum is the most actively used blockchain.`,
 					videoURL: "",
@@ -85,7 +85,7 @@ module.exports = {
 				{
 					productName: "VeChain",
 					mainProductImageURL:
-						"https://cryptologos.cc/logos/uniswap-uni-logo.png",
+						"https://s2.coinmarketcap.com/static/img/coins/200x200/3077.png",
 					colour: "#1aa1f0",
 					detailedProductInfo: `VeChain is a cryptocurrency and smart contracts platform focused on supply chain management. It allows manufacturers to add sensors, such as RFID tags, to their products that can then record data onto the VeChain blockchain.`,
 					videoURL: "https://youtu.be/vfAEir7uT_g?t=583",

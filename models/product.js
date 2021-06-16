@@ -9,10 +9,18 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			product.belongsTo(models.company);
-			product.hasMany(models.salesLocation);
 			product.hasMany(models.productImage);
-			product.hasMany(models.relevantProduct);
-			product.belongsToMany(models.relevantProduct);
+
+			product.belongsToMany(models.location, {
+				through: "salesLocations",
+				foreignKey: "productId",
+			});
+
+			product.belongsToMany(models.product, {
+				through: "relevantProducts",
+				as: "relevantProduct",
+				foreignKey: "productId",
+			});
 		}
 	}
 	product.init(
