@@ -1,5 +1,6 @@
 const express = require("express");
 const productsRouter = require("./routers/products");
+const authRouter = require("./routers/auth");
 
 const app = express();
 const PORT = 4000;
@@ -22,6 +23,7 @@ app.use(function (req, res, next) {
 // 	res.status(200).send({ message: "ok", products });
 // });
 
+app.use("/", authRouter);
 app.use("/products", productsRouter);
 
 app.listen(PORT, () => {
