@@ -11,14 +11,21 @@ module.exports = (sequelize, DataTypes) => {
 			product.belongsTo(models.company);
 			product.hasMany(models.productImage);
 
-			product.belongsToMany(models.location, {
-				through: "salesLocations",
+			product.belongsToMany(models.product, {
+				through: "relevantProducts",
+				as: "sourceProduct",
 				foreignKey: "productId",
 			});
-
 			product.belongsToMany(models.product, {
 				through: "relevantProducts",
 				as: "relevantProduct",
+				foreignKey: "relevantProductId",
+			});
+
+			product.hasMany(models.question);
+
+			product.belongsToMany(models.location, {
+				through: "salesLocations",
 				foreignKey: "productId",
 			});
 		}

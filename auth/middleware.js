@@ -11,7 +11,7 @@ async function auth(req, res, next) {
 				"This endpoint requires an Authorization header with a valid token",
 		});
 	}
-	s;
+
 	try {
 		const data = toData(auth[1]);
 		const company = await Company.findByPk(data.companyId);
