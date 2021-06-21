@@ -11,6 +11,12 @@ const RelevantProduct = require("../models").relevantProduct;
 
 const router = new Router();
 
+router.get("/locations", async (req, res) => {
+	const locations = await Location.findAll();
+	console.log("Locations:", locations);
+	res.status(200).send({ message: "ok", locations });
+});
+
 router.get("/", async (req, res) => {
 	const products = await Product.findAll({
 		limit: 5,
@@ -24,15 +30,12 @@ router.get("/company", auth, async (req, res) => {
 		req.headers.authorization && req.headers.authorization.split(" ");
 
 	const id = toData(auth[1]).companyId;
-	console.log("ID", id);
 
 	const products = await Product.findAll({
 		where: {
 			companyId: id,
 		},
 	});
-	console.log(products);
-	// console.log("company products:", products);
 	res.status(200).send({ message: "ok", products });
 });
 
@@ -51,17 +54,24 @@ router.get("/productDetails/:id", async (req, res) => {
 	res.status(200).send({ message: "ok", product });
 });
 
-// router.get("/relevantProducts/:id", async (req, res) => {
-// 	const { id } = req.params;
+router.patch("/vote", async (req, res) => {
+	const { answerId } = req.body;
 
-// 	const relevantProducts = await Product.findByPk(id, {
-// 		// attributes: ["relevantProductId"],
-// 		// include: [Product],
-// 		include: { model: Product, as: "targetProduct" },
-// 		// include: [{ model: Product, attributes: "relevantProductId" }],
-// 	});
+	const answer = await Answer.findByPk(answerId);
+	const voteCount = answer.dataValues.voteCount + 1;
 
-// 	res.status(200).send({ message: "ok", relevantProducts });
-// });
+	await answer.update({ voteCount });
+
+	return res.status(200).send({ message: "Vote Count:", answer });
+});
+
+router.post("/addLocation", async (req, res) => {
+	const { zipcode, streetNumber } = req.body;
+	const location = await Location.create({
+		zipcode,
+		streetNumber: parseInt(streetNumber),
+	});
+	return res.status(201).send({ message: "Location created", location });
+});
 
 module.exports = router;
