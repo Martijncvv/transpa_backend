@@ -47,16 +47,6 @@ router.post("/register", async (req, res) => {
 		detailedCompanyInfo,
 	} = req.body;
 
-	console.log(
-		companyName,
-		name,
-		surname,
-		email,
-		password,
-		companyImageUrl,
-		detailedCompanyInfo
-	);
-
 	if (
 		!companyName ||
 		!name ||
@@ -79,8 +69,6 @@ router.post("/register", async (req, res) => {
 			companyImageUrl,
 			detailedCompanyInfo,
 		});
-
-		console.log("CREATECCREATE");
 
 		delete newCompany.dataValues["password"]; // don't send back the password hash
 

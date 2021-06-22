@@ -34,7 +34,7 @@ module.exports = {
 				{
 					productName: "Organic Pizza",
 					mainProductImageURL:
-						"https://scontent-amt2-1.xx.fbcdn.net/v/t1.6435-9/195111428_4512473328782312_7293911875021218247_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=bo31N_xGWB0AX8FWWtM&_nc_ht=scontent-amt2-1.xx&oh=64e82ab37982a0bd2f17beeb3adc404b&oe=60CD44C5",
+						"https://www.oetker.nl/Recipe/Recipes/oetker.nl/nl-nl/miscallaneous/image-thumb__97330__RecipeDetailsLightBox/pizza-caprese.jpg",
 					colour: "#ffbb00",
 					detailedProductInfo: `All GreenFare Organic Cafe Food...
             ✅ Is loaded with Phytonutrients and Intact Fiber.

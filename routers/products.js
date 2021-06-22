@@ -18,11 +18,11 @@ router.get("/", async (req, res) => {
 	const products = await Product.findAll({
 		limit: 5,
 	});
-	console.log("Normal gett");
+
 	res.status(200).send({ message: "ok", products });
 });
 
-router.get("/company", auth, async (req, res) => {
+router.get("/companyProducts", auth, async (req, res) => {
 	const auth =
 		req.headers.authorization && req.headers.authorization.split(" ");
 
@@ -32,6 +32,7 @@ router.get("/company", auth, async (req, res) => {
 		where: {
 			companyId: id,
 		},
+		include: [{ model: Question, include: [Answer] }],
 	});
 	res.status(200).send({ message: "ok", products });
 });
@@ -45,6 +46,8 @@ router.get("/productDetails/:id", async (req, res) => {
 			{ model: Product, as: "relevantProduct" },
 			{ model: Question, include: [Answer] },
 			{ model: Location },
+			{ model: ProductImage },
+			// { model: RelevantProduct },
 		],
 	});
 
@@ -90,6 +93,7 @@ router.post("/addProduct", auth, async (req, res) => {
 		videoURL,
 		socialMediaURL,
 		location,
+		relevantProductIds,
 		productImage_1,
 		productImage_2,
 		productImage_3,
@@ -110,8 +114,6 @@ router.post("/addProduct", auth, async (req, res) => {
 		answer_3c,
 		answer_3d,
 	} = req.body;
-	console.log(answer_1a);
-	console.log(answer_2b);
 
 	const product = await Product.create({
 		productName,
@@ -128,6 +130,16 @@ router.post("/addProduct", auth, async (req, res) => {
 		locationId: location,
 		productId,
 	});
+
+	if (relevantProductIds.length) {
+		await relevantProductIds.forEach((relevantProduct) => {
+			RelevantProduct.create({
+				productId: relevantProduct,
+				relevantProductId: productId,
+			});
+			console.log(`PRODUCTID ${productId}, RELEVANTPRODUCT ${relevantProduct}`);
+		});
+	}
 
 	if (productImage_1) {
 		await ProductImage.create({
@@ -154,7 +166,6 @@ router.post("/addProduct", auth, async (req, res) => {
 			productId,
 		});
 
-		console.log("BBBBBBBBB", questionData_1.dataValues.id);
 		if (answer_1a) {
 			await Answer.create({
 				answer: answer_1a,
@@ -162,7 +173,7 @@ router.post("/addProduct", auth, async (req, res) => {
 				questionId: questionData_1.dataValues.id,
 			});
 		}
-		console.log("AAAAAAAAAA", answer_1b);
+
 		if (answer_1b) {
 			await Answer.create({
 				answer: answer_1b,
@@ -257,10 +268,16 @@ router.post("/addProduct", auth, async (req, res) => {
 		}
 	}
 
-	// console.log("saleLocation", saleLocation);
-	// console.log("PRODUCT", product.dataValues.id);
-
 	return res.status(200).send({ message: "Product created", product });
+});
+
+router.delete("/delete/:productId", async (req, res) => {
+	const { productId } = req.params;
+
+	const productToDelete = await Product.findByPk(productId);
+	const deleted = await productToDelete.destroy();
+
+	return res.status(204).send({ message: "Product deleted", deleted });
 });
 
 module.exports = router;
