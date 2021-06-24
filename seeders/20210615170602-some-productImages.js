@@ -28,7 +28,7 @@ module.exports = {
 				},
 				{
 					productImageURL:
-						"https://www.dairyfoods.com/ext/resources/Default_Images/Responsive/cheese3-default.jpg?1429020444",
+						"https://www.noracooks.com/wp-content/uploads/2020/05/square.jpg",
 					productId: 2,
 					createdAt: new Date(),
 					updatedAt: new Date(),

@@ -17,6 +17,7 @@ const router = new Router();
 router.get("/", async (req, res) => {
 	const products = await Product.findAll({
 		limit: 5,
+		include: [Company],
 	});
 
 	res.status(200).send({ message: "ok", products });
@@ -32,7 +33,7 @@ router.get("/companyProducts", auth, async (req, res) => {
 		where: {
 			companyId: id,
 		},
-		include: [{ model: Question, include: [Answer] }],
+		include: [Company, { model: Question, include: [Answer] }],
 	});
 	res.status(200).send({ message: "ok", products });
 });

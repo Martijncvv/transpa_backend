@@ -62,13 +62,6 @@ module.exports = {
 					updatedAt: new Date(),
 				},
 				{
-					answer: "5",
-					voteCount: 0,
-					questionId: 2,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-				},
-				{
 					answer: "Perfect",
 					voteCount: 0,
 					questionId: 3,
@@ -131,13 +124,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
-				{
-					answer: "5",
-					voteCount: 0,
-					questionId: 5,
-					createdAt: new Date(),
-					updatedAt: new Date(),
-				},
+
 				{
 					answer: "Bad",
 					voteCount: 0,
