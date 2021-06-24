@@ -34,7 +34,7 @@ module.exports = {
 				{
 					productName: "Organic Pizza",
 					mainProductImageURL:
-						"https://scontent-amt2-1.xx.fbcdn.net/v/t1.6435-9/195111428_4512473328782312_7293911875021218247_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=bo31N_xGWB0AX8FWWtM&_nc_ht=scontent-amt2-1.xx&oh=64e82ab37982a0bd2f17beeb3adc404b&oe=60CD44C5",
+						"https://www.oetker.nl/Recipe/Recipes/oetker.nl/nl-nl/miscallaneous/image-thumb__97330__RecipeDetailsLightBox/pizza-caprese.jpg",
 					colour: "#ffbb00",
 					detailedProductInfo: `All GreenFare Organic Cafe Food...
             ✅ Is loaded with Phytonutrients and Intact Fiber.
@@ -61,7 +61,7 @@ module.exports = {
 				{
 					productName: "Ethereum",
 					mainProductImageURL:
-						"hhttps://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/628px-Ethereum_logo_2014.svg.png",
+						"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/628px-Ethereum_logo_2014.svg.png",
 					colour: "#2d3040",
 					detailedProductInfo: `Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether (ETH or Ξ) is the native cryptocurrency of the platform. After Bitcoin, it is the second-largest cryptocurrency by market capitalization. Ethereum is the most actively used blockchain.`,
 					videoURL: "",
@@ -85,7 +85,7 @@ module.exports = {
 				{
 					productName: "VeChain",
 					mainProductImageURL:
-						"https://cryptologos.cc/logos/uniswap-uni-logo.png",
+						"https://s2.coinmarketcap.com/static/img/coins/200x200/3077.png",
 					colour: "#1aa1f0",
 					detailedProductInfo: `VeChain is a cryptocurrency and smart contracts platform focused on supply chain management. It allows manufacturers to add sensors, such as RFID tags, to their products that can then record data onto the VeChain blockchain.`,
 					videoURL: "https://youtu.be/vfAEir7uT_g?t=583",
