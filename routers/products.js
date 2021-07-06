@@ -67,7 +67,9 @@ router.patch("/vote", async (req, res) => {
 });
 
 router.get("/locations", async (req, res) => {
-	const locations = await Location.findAll();
+	const locations = await Location.findAll({
+		include: [Product],
+	});
 	res.status(200).send({ message: "ok", locations });
 });
 
@@ -93,7 +95,7 @@ router.post("/addProduct", auth, async (req, res) => {
 		detailedProductInfo,
 		videoURL,
 		socialMediaURL,
-		location,
+		salesLocationIds,
 		relevantProductIds,
 		productImage_1,
 		productImage_2,
@@ -127,11 +129,6 @@ router.post("/addProduct", auth, async (req, res) => {
 	});
 	const productId = product.dataValues.id;
 
-	await SalesLocation.create({
-		locationId: location,
-		productId,
-	});
-
 	if (relevantProductIds.length) {
 		await relevantProductIds.forEach((relevantProduct) => {
 			RelevantProduct.create({
@@ -139,6 +136,16 @@ router.post("/addProduct", auth, async (req, res) => {
 				relevantProductId: productId,
 			});
 			console.log(`PRODUCTID ${productId}, RELEVANTPRODUCT ${relevantProduct}`);
+		});
+	}
+
+	if (salesLocationIds.length) {
+		await salesLocationIds.forEach((salesLocation) => {
+			SalesLocation.create({
+				productId: productId,
+				locationId: salesLocation,
+			});
+			console.log(`PRODUCTID ${productId}, SALESLOCATION ${salesLocation}`);
 		});
 	}
 
