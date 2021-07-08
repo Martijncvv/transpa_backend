@@ -1,3 +1,4 @@
+# config json file
 {
 	"development": {
 		"url": "postgres://zrenhdhq:jeaBZgjVb-TasQVuc3LC80eInCAljxN1@hattie.db.elephantsql.com/zrenhdhq",
@@ -12,11 +13,11 @@
 		"dialect": "mysql"
 	},
 	"production": {
-		"use_env_variable": "DATABASE_URL",
-		"dialectOptions": {
-			"ssl": {
-				"rejectUnauthorized": false
-			}
-		}
+		"username": "root",
+		"password": null,
+		"database": "database_production",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
 	}
 }
+

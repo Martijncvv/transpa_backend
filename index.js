@@ -1,14 +1,14 @@
+const cors = require("cors");
+app.use(cors());
+
 const express = require("express");
 const productsRouter = require("./routers/products");
 const authRouter = require("./routers/auth");
-const corsMiddleWare = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
-
-app.use(corsMiddleWare());
 
 if (process.env.DELAY) {
 	app.use((req, res, next) => {
