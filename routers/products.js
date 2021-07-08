@@ -28,8 +28,9 @@ router.get("/companyProducts", auth, async (req, res) => {
 		req.headers.authorization && req.headers.authorization.split(" ");
 
 	const id = toData(auth[1]).companyId;
-
+	const limit = req.query.limit || 25;
 	const products = await Product.findAll({
+		limit,
 		where: {
 			companyId: id,
 		},
@@ -40,7 +41,6 @@ router.get("/companyProducts", auth, async (req, res) => {
 
 router.get("/productDetails/:id", async (req, res) => {
 	const { id } = req.params;
-
 	const product = await Product.findByPk(id, {
 		include: [
 			Company,
@@ -48,7 +48,6 @@ router.get("/productDetails/:id", async (req, res) => {
 			{ model: Question, include: [Answer] },
 			{ model: Location },
 			{ model: ProductImage },
-			// { model: RelevantProduct },
 		],
 	});
 
@@ -67,15 +66,15 @@ router.patch("/vote", async (req, res) => {
 });
 
 router.get("/locations", async (req, res) => {
-	const locations = await Location.findAll({
-		include: [Product],
-	});
+	const limit = req.query.limit || 25;
+	const locations = await Location.findAll({ limit, include: [Product] });
 	res.status(200).send({ message: "ok", locations });
 });
 
 router.post("/addLocation", async (req, res) => {
-	const { zipcode, streetNumber } = req.body;
+	const { city, zipcode, streetNumber } = req.body;
 	const location = await Location.create({
+		city,
 		zipcode,
 		streetNumber: parseInt(streetNumber),
 	});
@@ -129,6 +128,7 @@ router.post("/addProduct", auth, async (req, res) => {
 	});
 	const productId = product.dataValues.id;
 
+	console.log("RELEVANTPRODUCTIDS: ", relevantProductIds);
 	if (relevantProductIds.length) {
 		await relevantProductIds.forEach((relevantProduct) => {
 			RelevantProduct.create({
@@ -138,7 +138,7 @@ router.post("/addProduct", auth, async (req, res) => {
 			console.log(`PRODUCTID ${productId}, RELEVANTPRODUCT ${relevantProduct}`);
 		});
 	}
-
+	console.log("SALESLOCATIONIDS: ", salesLocationIds);
 	if (salesLocationIds.length) {
 		await salesLocationIds.forEach((salesLocation) => {
 			SalesLocation.create({
