@@ -6510,8 +6510,8 @@
 			}
 		},
 		"nodejs": {
-			"version": "14.16.1",
-			"resolved": "https://registry.npmjs.org/nodejs/-/nodejs-14.16.1.tgz",
+			"version": "14.17.3",
+			"resolved": "https://registry.npmjs.org/nodejs/-/nodejs-14.17.3.tgz",
 			"integrity": "sha1-RyL6LhisTrc6Qq4W0B41hKErdTE="
 		},
 		"nodemon": {
