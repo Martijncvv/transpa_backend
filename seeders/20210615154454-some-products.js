@@ -88,7 +88,7 @@ module.exports = {
 						"https://s2.coinmarketcap.com/static/img/coins/200x200/3077.png",
 					colour: "#1aa1f0",
 					detailedProductInfo: `VeChain is a cryptocurrency and smart contracts platform focused on supply chain management. It allows manufacturers to add sensors, such as RFID tags, to their products that can then record data onto the VeChain blockchain.`,
-					videoURL: "https://youtu.be/vfAEir7uT_g?t=583",
+					videoURL: "https://www.youtube.com/watch?v=dpT7zLNu4qk",
 					socialMediaURL: "https://www.facebook.com/binance",
 					createdAt: new Date(),
 					updatedAt: new Date(),

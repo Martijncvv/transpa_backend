@@ -8,7 +8,7 @@ module.exports = {
 				{
 					companyName: "Orange Wolf Trading",
 					name: "Marty",
-					surname: "van Veen",
+					surname: "van Vn",
 					email: "MV@gmail.com",
 					password:
 						"$2b$10$7rf13jdI2S8ds8g8O0du6euCNV.EKeqJcUx.XD6HraChoahmWrt5a",
@@ -30,6 +30,20 @@ module.exports = {
 						"Binance is a Cayman Islands-domiciled cryptocurrency exchange that provides a platform for trading various cryptocurrencies founded in 2017.",
 					companyImageUrl:
 						"https://upload.wikimedia.org/wikipedia/commons/d/d7/Binance.png",
+					createdAt: new Date(),
+					updatedAt: new Date(),
+				},
+				{
+					companyName: "The Honey Shop",
+					name: "Antonio",
+					surname: "Simon",
+					email: "Honey@gmail.com",
+					password:
+						"$2b$10$7rf13jdI2S8ds8g8O0du6euCNV.EKeqJcUx.XD6HraChoahmWrt5a",
+					detailedCompanyInfo:
+						"PURE RAW HONEY - LIKE NATURE INTENDED. From wild mountains and remote forests free from pesticides, herbicides and fungicides. Produced by the bees of small scale artisan beekeepers",
+					companyImageUrl:
+						"https://firstchoiceradio.online/wp-content/uploads/2021/01/Raw_Honey_shop_08_thumb900.jpg",
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
