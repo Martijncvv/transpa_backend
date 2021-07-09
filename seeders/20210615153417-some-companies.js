@@ -12,7 +12,8 @@ module.exports = {
 					email: "MV@gmail.com",
 					password:
 						"$2b$10$7rf13jdI2S8ds8g8O0du6euCNV.EKeqJcUx.XD6HraChoahmWrt5a",
-					detailedCompanyInfo: "E-commerce arbitrage company",
+					detailedCompanyInfo:
+						"E-commerce arbitrage company. A small hobby shop for organic and natural products.",
 					companyImageUrl:
 						"https://media-exp1.licdn.com/dms/image/C4D0BAQEJ6-eaNFdIQw/company-logo_200_200/0/1585515440879?e=1631750400&v=beta&t=isXYY4CYy1VFFv7tDNAkSRpeC3XFfK7a_by8m-1hNL4",
 					createdAt: new Date(),
