@@ -16,16 +16,9 @@ const router = new Router();
 
 router.get("/", async (req, res) => {
 	const products = await Product.findAll({
-		order: "random()",
 		limit: 5,
 		include: [Company],
-	}).then((encounter) => {
-		// single random encounter
 	});
-	// const products = await Product.findAll({
-	// 	limit: 5,
-	// 	include: [Company],
-	// });
 
 	res.status(200).send({ message: "ok", products });
 });
