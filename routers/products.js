@@ -16,7 +16,7 @@ const router = new Router();
 
 router.get("/", async (req, res) => {
 	const products = await Product.findAll({
-		limit: 5,
+		limit: 9,
 		include: [Company],
 	});
 
